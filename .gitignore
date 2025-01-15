@@ -1,0 +1,61 @@
+# Python Bytecode
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual Environment
+venv/
+.env/
+
+# Django Secret Key (if stored in a .env file)
+.env
+
+# Database files
+db.sqlite3
+
+# Django Migrations
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Media/Uploads
+media/
+
+# Static Files
+staticfiles/
+static/
+
+# Logs
+*.log
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test Coverage Reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+
+# Pytest Cache
+.pytest_cache/
+
+# Docker
+*.stackdump
+*.dockerignore
+
+# Node Modules (if using frontend integration)
+node_modules/
+
+# Build Files
+build/
+dist/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode
