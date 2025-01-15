@@ -1,1 +1,1 @@
-# INT253: Django
+# INT253: Django Freeman
