@@ -12,4 +12,4 @@ def student_details(request):
         'marks': {'Math': 85, 'Physics': 94, 'Chemistry': 87}
     }
     
-    return render(request, '/student.html', {'student': student})
+    return render(request, 'student.html', {'student': student})
