@@ -1,9 +1,35 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-import json
+import datetime
 
 # Create your views here.
+def donation_date(request, year, month, day, slug):
+    # Dummy data for demonstration
+    donation = {
+        'date': f'{year}-{month}-{day}',
+        'slug': slug,
+    }
+
+    #validate the date
+    try:
+        datetime.datetime(int(year), int(month), int(day))
+        donation['error'] = None
+    except ValueError:
+        donation['error'] = 'Invalid date'
+        donation['date'] = None
+
+    return render(request, 'donationDate.html', {'donation': donation})
+
+def donor_details(request, donor_id):
+    # Dummy data for demonstration
+    donor = {
+        'id': donor_id,
+        'name': 'John Doe',
+    }
+
+    return render(request, 'donorDetails.html', {'donor': donor})
+
 def index(request):
     return render(request, 'index.html')
 
