@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block title %} Contact Us - My Blood Donation Website {% endblock %}
+
+{% block content %}
+
+    <section id="contact" style="background-color: #fff5f5; padding: 50px 20px; text-align: center;">
+        <h2 style="color: #ff3333;">Contact Us</h2>
+        <p style="font-size: 1.2rem;">Have questions? Reach out to us!</p>
+
+        <form style="max-width: 500px; margin: 0 auto; text-align: left;">
+            <label for="name" style="font-weight: bold;">Name:</label>
+            <input type="text" id="name" name="name" required 
+                style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ff4d4d; border-radius: 5px;">
+
+            <label for="email" style="font-weight: bold;">Email:</label>
+            <input type="email" id="email" name="email" required 
+                style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ff4d4d; border-radius: 5px;">
+
+            <label for="message" style="font-weight: bold;">Message:</label>
+            <textarea id="message" name="message" rows="4" required 
+                style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ff4d4d; border-radius: 5px;"></textarea>
+
+            <button type="submit" style="background-color: #ff4d4d; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease;">
+                Send Message
+            </button>
+        </form>
+
+        <div style="margin-top: 30px;">
+            <p><strong>Email:</strong> contact@blooddonation.com</p>
+            <p><strong>Phone:</strong> +1 234 567 890</p>
+            <p><strong>Address:</strong> 123 Life Saver Street, Bloodville, USA</p>
+        </div>
+    </section>
+
+{% endblock %}

@@ -4,6 +4,13 @@ from django.views.decorators.csrf import csrf_exempt
 import datetime
 
 # Create your views here.
+
+def about (request): 
+    return render(request, 'about.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
 def donation_date(request, year, month, day, slug):
     # Dummy data for demonstration
     donation = {
@@ -33,7 +40,10 @@ def donor_details(request, donor_id):
 def index(request):
     return render(request, 'index.html')
 
-def register_donor(request):
+def main(request):
+    return render(request, 'main.html')
+
+def donate(request):
     if request.method == 'POST':
         # Extract form data from POST request
         full_name = request.POST.get('full-name')
@@ -48,7 +58,8 @@ def register_donor(request):
         print(f"Donor Details:\nName: {full_name}\nEmail: {email}\nPhone: {phone}\nBlood Type: {blood_type}\nAvailability: {availability_date}\nAddress: {address}\nNotes: {notes}")
 
         # Respond with a success message (could redirect or show success on the page)
-        return JsonResponse({'message': 'Donor registered successfully!'})
+        # return JsonResponse({'message': 'Donor registered successfully!'})
+        return render(request, 'main.html', {'message': 'Donor registered successfully!'})
 
     # For GET requests, render the HTML form
-    return render(request, 'donorRegistration.html')
+    return render(request, 'donate.html')

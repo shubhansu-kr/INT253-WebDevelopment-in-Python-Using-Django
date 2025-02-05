@@ -1,0 +1,80 @@
+{% extends 'index.html' %}
+
+{% block title %} Donate - My Blood Donation Website {% endblock %}
+
+{% block content %}
+
+    {% comment %} <main>
+        <h2>Donor Registration Form</h2>
+        <form method="POST" action="{% url 'donate' %}">
+            {% csrf_token %}
+            <label for="full-name">Full Name:</label>
+            <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="blood-type">Blood Type:</label>
+            <select id="blood-type" name="blood-type" required>
+                <option value="">Select your blood type</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+
+            <label for="availability-date">Date of Availability:</label>
+            <input type="date" id="availability-date" name="availability-date" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" placeholder="Enter your address"></textarea>
+
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Any specific message or note"></textarea>
+
+            <input type="submit" value="Register as Donor">
+        </form>
+    </main> {% endcomment %}
+
+    <section class="hero" id="donate">
+        <h2>Donor Registration</h2>
+        <p>Join our mission to save lives. Register as a blood donor today!</p>
+        
+        <form action="{% url 'donate' %}" method="POST" style="max-width: 400px; margin: 0 auto; text-align: left;">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;">
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;">
+    
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;">
+    
+            <label for="blood-type">Blood Type:</label>
+            <select id="blood-type" name="blood-type" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;">
+                <option value="" disabled selected>Select your blood type</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+    
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;">
+    
+            <button type="submit" class="cta-button" style="width: 100%; margin-top: 10px;">Register Now</button>
+        </form>
+    </section>
+    
+{% endblock %}
