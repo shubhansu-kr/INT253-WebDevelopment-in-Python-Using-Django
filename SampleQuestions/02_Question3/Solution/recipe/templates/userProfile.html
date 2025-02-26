@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{{ user.name }}'s Profile</h2>
+    <p>Email: {{ user.email }}</p>
+    <h3>Recipes by {{ user.name }}</h3>
+    {% for recipe in recipes %}
+        <div class="card">
+            <h3><a href="/recipe/{{ recipe.id }}/">{{ recipe.title }}</a></h3>
+        </div>
+    {% endfor %}
+{% endblock %}

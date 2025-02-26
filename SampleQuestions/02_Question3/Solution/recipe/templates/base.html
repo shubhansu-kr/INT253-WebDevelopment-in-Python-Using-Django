@@ -1,0 +1,35 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Sharing Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .navbar { background: #333; color: white; padding: 10px; text-align: center; display: flex; justify-content: space-between; align-items: center; }
+        .navbar a { color: white; text-decoration: none; margin: 0 15px; }
+        .nav-links { display: flex; }
+        .footer { background: #333; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%; }
+        .container { width: 80%; margin: auto; }
+        .card { border: 1px solid #ddd; padding: 15px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1><a href="/">Recipe Sharing Platform</a></h1>
+        <div class="nav-links">
+            <a href="/recipe/">Recipes</a>
+            <a href="/user/">Profile</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2025 Recipe Sharing Platform</p>
+    </div>
+</body>
+</html>
