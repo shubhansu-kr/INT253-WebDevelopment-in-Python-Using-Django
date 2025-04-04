@@ -1,9 +1,9 @@
 # Setup Application
 
-1. Start the Django project 
+1. Start the Django project
    1. `django-admin startproject Solution`
    2. `cd Solution`
-   3. `python manage.py runserver` : This will launch the base start application on local host. 
+   3. `python manage.py runserver` : This will launch the base start application on local host.
 2. Start an application within this project
    1. `django-admin startapp library`
    2. This will create an application directory within the Solution project
@@ -11,7 +11,7 @@
    1. Open library directory and create `urls.py` file
       1. Add url patterns to this file
    2. Link this url file to the solution url.
-   3. Add the following pattern in Solution's Urls.py 
+   3. Add the following pattern in Solution's Urls.py
       1. `path('library/', include('library.urls')),`
    4. Add this library application to the list of application in solution project
       1. Open `settings.py` in Solution project
@@ -22,10 +22,11 @@
    6. Add the index's req loader to the `views.py` file.
 4. Start the server
 
-Files 
+Files
 
-Solution/urls.py : 
-```
+Solution/urls.py :
+
+```python
 from django.contrib import admin
 from django.urls import include, path
 
@@ -35,8 +36,9 @@ urlpatterns = [
 ]
 ```
 
-Solution/settings.py : 
-```
+Solution/settings.py :
+
+```py
 # Application definition
 
 INSTALLED_APPS = [
@@ -51,7 +53,8 @@ INSTALLED_APPS = [
 ```
 
 Library/urls.py
-```
+
+```py
 from django.urls import path, re_path
 
 from . import views
@@ -62,7 +65,8 @@ urlpatterns = [
 ```
 
 Library/views.py
-```
+
+```py
 from django.shortcuts import render
 
 # Create your views here.
@@ -71,7 +75,8 @@ def index(request):
 ```
 
 Library/Template/index.html
-```
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
