@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            margin-top: 150px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .errors {
+            color: red;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Medical Form</h2>
+
+        {% if form.errors %}
+            <div class="errors">
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li><strong>{{ field|title }}:</strong> {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form action="{% url 'userform' %}" method="post">
+            {% csrf_token %}
+            
+            <label for="{{ form.patient_name.id_for_label }}">Patient Name:</label>
+            {{ form.patient_name }}
+
+            <label for="{{ form.age.id_for_label }}">Age:</label>
+            {{ form.age }}
+
+            <label for="{{ form.email.id_for_label }}">Email:</label>
+            {{ form.email }}
+
+            <label for="{{ form.phone.id_for_label }}">Phone:</label>
+            {{ form.phone }}
+
+            <label for="{{ form.gender.id_for_label }}">Gender:</label>
+            {{ form.gender }}
+
+            <label for="{{ form.symptoms.id_for_label }}">Symptoms:</label>
+            {{ form.symptoms }}
+
+            <label for="{{ form.appointmentdate.id_for_label }}">Appointment Date:</label>
+            <input type="date" id="{{ form.appointmentdate.id_for_label }}" name="{{ form.appointmentdate.html_name }}" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
