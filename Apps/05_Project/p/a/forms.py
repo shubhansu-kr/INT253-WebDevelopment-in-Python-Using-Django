@@ -5,6 +5,9 @@ class BlogPostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
         fields = ['title', 'content', 'published_date']
+        widgets = {
+            'published_date': forms.DateInput(attrs={'type': 'date'})
+        }
 
     def clean_title(self):
         title = self.cleaned_data['title']

@@ -1,44 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Create Blog Post</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
         }
-        form {
-            max-width: 500px;
-            margin: auto;
+
+        .container {
+            background-color: white;
+            padding: 3rem 4rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
         }
-        label {
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        form label {
             display: block;
             margin-top: 1rem;
+            font-weight: bold;
+            color: #444;
         }
-        input, textarea {
+
+        input, textarea, input[type="date"], input[type="datetime-local"] {
             width: 100%;
-            padding: 0.5rem;
+            padding: 0.75rem;
             margin-top: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 1rem;
         }
+
         button {
+            margin-top: 2rem;
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #eb5d41;
+        }
+
+        .errors {
+            color: red;
             margin-top: 1rem;
-            padding: 0.5rem 1rem;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
-    <h1>Create a Blog Post</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Post</button>
-    </form>
+    <div class="container">
+        <h1>Create a Blog Post</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Post</button>
+        </form>
 
-    {% if form.errors %}
-        <div style="color: red;">
-            <h3>Form Errors:</h3>
-            {{ form.errors }}
-        </div>
-    {% endif %}
+        {% if form.errors %}
+            <div class="errors">
+                <h3>Form Errors:</h3>
+                {{ form.errors }}
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>

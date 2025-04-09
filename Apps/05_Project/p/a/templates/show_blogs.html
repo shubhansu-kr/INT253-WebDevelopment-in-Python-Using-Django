@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Blog Posts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card h2 {
+            color: #444;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .date {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .home-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #ff7e5f;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+            text-decoration: none;
+        }
+
+        .home-link:hover {
+            background-color: #eb5d41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Blog Posts 📚</h1>
+
+        <div class="grid">
+            {% for post in posts %}
+                <div class="card">
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.content|linebreaksbr }}</p>
+                    <div class="date">Published on: {{ post.published_date|date:"F j, Y, g:i a" }}</div>
+                </div>
+            {% empty %}
+                <p>No posts found.</p>
+            {% endfor %}
+        </div>
+
+        <a href="/app" class="home-link">🏠 Back to Home</a>
+        <a href="/app/blog" class="home-link">Create Blog Post</a>
+    </div>
+</body>
+</html>
