@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='BlogPost',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
+                ('title', models.CharField(max_length=40)),
                 ('content', models.TextField(max_length=1000)),
                 ('published_date', models.DateTimeField()),
             ],
