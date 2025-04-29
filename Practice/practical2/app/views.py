@@ -89,3 +89,7 @@ def books_by_user(request, user_name):
         response += f"<p><strong>{book['title']}</strong> by {book['author']}</p>"
     
     return HttpResponse(response)
+
+def book_list(request):
+    books_list = list(books.values())
+    return render(request, 'book_list.html', {'books': books_list})
